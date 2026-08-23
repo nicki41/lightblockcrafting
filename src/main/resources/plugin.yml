@@ -1,0 +1,17 @@
+name: LightBlockCrafting
+version: '${version}'
+main: net.lightblockcrafting.LightBlockCraftingPlugin
+api-version: '1.19'
+author: nlckl
+description: Craftbare, sichtbare Lichtbloecke in 16 Helligkeitsstufen - vanilla- und survivalfreundlich.
+
+commands:
+  lightblock:
+    description: Verwaltungsbefehl fuer Lichtbloecke.
+    usage: /lightblock give <stufe> [spieler]
+    permission: lightblockcrafting.admin
+
+permissions:
+  lightblockcrafting.admin:
+    description: Erlaubt das Erzeugen von Lichtbloecken per Befehl.
+    default: op
