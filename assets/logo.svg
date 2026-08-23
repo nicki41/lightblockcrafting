@@ -1,45 +1,17 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="glow" cx="50%" cy="52%" r="55%">
-      <stop offset="0%" stop-color="#FFD877" stop-opacity="0.65"/>
-      <stop offset="45%" stop-color="#FFC94A" stop-opacity="0.32"/>
-      <stop offset="100%" stop-color="#FFC94A" stop-opacity="0"/>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFCB4D" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FFCB4D" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="top" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FFF3C4"/>
-      <stop offset="100%" stop-color="#FFDD7A"/>
-    </linearGradient>
-    <linearGradient id="left" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#F5B23E"/>
-      <stop offset="100%" stop-color="#E29A20"/>
-    </linearGradient>
-    <linearGradient id="right" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#D6841A"/>
-      <stop offset="100%" stop-color="#B5691A"/>
+    <linearGradient id="block" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE28A"/>
+      <stop offset="100%" stop-color="#F5A623"/>
     </linearGradient>
   </defs>
 
-  <circle cx="256" cy="290" r="255" fill="url(#glow)"/>
+  <circle cx="256" cy="256" r="230" fill="url(#glow)"/>
 
-  <g stroke="#8A5410" stroke-opacity="0.55" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" opacity="0.9">
-    <line x1="256" y1="60" x2="256" y2="112"/>
-    <line x1="90" y1="150" x2="132" y2="176"/>
-    <line x1="422" y1="150" x2="380" y2="176"/>
-    <line x1="60" y1="300" x2="112" y2="300"/>
-    <line x1="452" y1="300" x2="400" y2="300"/>
-  </g>
-
-  <g stroke="#7A4A10" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-    <polygon points="256,165 386.5,232.5 256,300 125.5,232.5" fill="url(#top)"/>
-    <polygon points="125.5,232.5 256,300 256,430 125.5,362.5" fill="url(#left)"/>
-    <polygon points="256,300 386.5,232.5 386.5,362.5 256,430" fill="url(#right)"/>
-  </g>
-
-  <g stroke="#FFF3C4" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round">
-    <line x1="150" y1="245" x2="230" y2="290"/>
-    <line x1="175" y1="230" x2="255" y2="275"/>
-  </g>
-
-  <text x="256" y="315" font-family="Verdana, Geneva, sans-serif" font-weight="700" font-size="72"
-        text-anchor="middle" fill="#4A2E08" opacity="0.85">7</text>
+  <rect x="156" y="156" width="200" height="200" rx="16"
+        fill="url(#block)" stroke="#8A5410" stroke-width="6"/>
 </svg>
