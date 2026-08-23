@@ -10,9 +10,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.world.ChunkLoadEvent;
 
 /**
- * Selbstheilung: Wird ein Lichtblock ausserhalb der normalen Abbau-Wege entfernt
- * (z.B. durch Kolben, WorldEdit oder ein anderes Plugin), bleiben sonst verwaiste
- * Marker-Entities zurueck. Beim Laden eines Chunks wird das hier bereinigt.
+ * Self-healing: if a light block is removed outside the normal break paths
+ * (e.g. by a piston, WorldEdit, or another plugin), orphaned marker entities
+ * would otherwise be left behind. This cleans them up when a chunk loads.
  */
 public class ChunkGuardListener implements Listener {
 

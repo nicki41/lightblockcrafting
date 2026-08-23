@@ -4,7 +4,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.Plugin;
 
 /**
- * Zentrale PersistentDataContainer-Schluessel des Plugins.
+ * Central PersistentDataContainer keys used by the plugin.
  */
 public final class LightBlockKeys {
 

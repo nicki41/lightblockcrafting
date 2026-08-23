@@ -27,8 +27,8 @@ import org.bukkit.inventory.ItemStack;
 import java.util.Iterator;
 
 /**
- * Kuemmert sich um das Platzieren von Lichtbloecken (inkl. Spawn der sichtbaren Marker)
- * sowie um alle Wege, wie ein Lichtblock wieder entfernt werden kann.
+ * Handles placing light blocks (including spawning the visible markers)
+ * as well as every way a light block can be removed again.
  */
 public class PlaceBreakListener implements Listener {
 
@@ -74,14 +74,14 @@ public class PlaceBreakListener implements Listener {
         }
         event.setCancelled(true);
         int level = LightBlockMarker.getLevel(interaction);
-        event.getPlayer().sendActionBar(Component.text("Lichtblock - Stufe ", NamedTextColor.GRAY)
+        event.getPlayer().sendActionBar(Component.text("Light Block - Level ", NamedTextColor.GRAY)
                 .append(Component.text(level, NamedTextColor.AQUA)));
     }
 
     /**
-     * Fallback: falls ein Lichtblock ohne den Umweg ueber die Interaction-Entity
-     * abgebaut wird (z.B. Spieler haelt selbst einen Lichtblock in der Hand,
-     * ein anderes Plugin oder WorldEdit entfernt den Block).
+     * Fallback: in case a light block is removed without going through the
+     * interaction entity (e.g. the player holds a light block themselves,
+     * another plugin or WorldEdit removes the block).
      */
     @EventHandler(ignoreCancelled = true)
     public void onBreak(BlockBreakEvent event) {

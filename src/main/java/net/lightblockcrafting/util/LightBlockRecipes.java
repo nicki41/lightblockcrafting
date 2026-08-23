@@ -9,15 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Registriert je ein Rezept pro craftbarer Lichtstufe (1-15, Stufe 0 ist bewusst
- * nicht craftbar). Jedes Rezept besteht aus 1x Glas plus Glowstone:
+ * Registers one recipe per craftable light level (1-15, level 0 is deliberately
+ * not craftable). Every recipe consists of 1x glass plus glowstone:
  * <ul>
- *     <li>Stufe 1-8: 1x Glas + N x Glowstone-Staub (N = Stufe)</li>
- *     <li>Stufe 9-15: 1x Glas + N x Glowstone-Block (N = Stufe - 7, also 2-8 Bloecke)</li>
+ *     <li>Level 1-8: 1x glass + N x glowstone dust (N = level)</li>
+ *     <li>Level 9-15: 1x glass + N x glowstone block (N = level - 7, i.e. 2-8 blocks)</li>
  * </ul>
- * Damit passt jedes Rezept in ein normales 3x3-Crafting-Feld (1 Glas + max. 8
- * weitere Zutaten) und jede Stufe hat genau ein festes Rezept - keine
- * nachtraegliche Anpassung moeglich.
+ * This means every recipe fits in a regular 3x3 crafting grid (1 glass + up to 8
+ * more ingredients) and every level has exactly one fixed recipe - no way to
+ * adjust it afterwards.
  */
 public final class LightBlockRecipes {
 

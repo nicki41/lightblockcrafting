@@ -8,8 +8,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import java.util.List;
 
 /**
- * Schaltet allen Spielern die Lichtblock-Rezepte im Rezeptbuch frei, damit sie
- * dort auftauchen statt erst nach dem ersten manuellen Craften entdeckt zu werden.
+ * Unlocks the light block recipes in the recipe book for all players, so they
+ * show up there instead of only being discovered after crafting one manually.
  */
 public class RecipeBookListener implements Listener {
 

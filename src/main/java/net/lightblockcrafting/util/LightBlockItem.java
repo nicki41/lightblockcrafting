@@ -12,7 +12,7 @@ import org.bukkit.persistence.PersistentDataType;
 import java.util.List;
 
 /**
- * Erzeugt und liest die Lichtblock-Items (Material.LIGHT mit Stufe 0-15).
+ * Creates and reads the light block items (Material.LIGHT with level 0-15).
  */
 public final class LightBlockItem {
 
@@ -27,11 +27,11 @@ public final class LightBlockItem {
         ItemStack item = new ItemStack(Material.LIGHT);
         ItemMeta meta = item.getItemMeta();
 
-        meta.displayName(Component.text("Lichtblock", NamedTextColor.AQUA)
+        meta.displayName(Component.text("Light Block", NamedTextColor.AQUA)
                 .decoration(TextDecoration.ITALIC, false)
-                .append(Component.text(" [Stufe " + clamped + "]", NamedTextColor.GRAY)));
+                .append(Component.text(" [Level " + clamped + "]", NamedTextColor.GRAY)));
         meta.lore(List.of(
-                Component.text("Lichtlevel: ", NamedTextColor.DARK_GRAY)
+                Component.text("Light level: ", NamedTextColor.DARK_GRAY)
                         .decoration(TextDecoration.ITALIC, false)
                         .append(Component.text(clamped, NamedTextColor.WHITE))
         ));

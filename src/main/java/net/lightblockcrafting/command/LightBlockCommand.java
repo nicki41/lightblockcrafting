@@ -17,14 +17,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * /lightblock give <stufe> [spieler] - erzeugt einen Lichtblock der gewuenschten Stufe.
+ * /lightblock give <level> [player] - gives a light block of the requested level.
  */
 public class LightBlockCommand implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (args.length < 2 || !args[0].equalsIgnoreCase("give")) {
-            sender.sendMessage(Component.text("Verwendung: /lightblock give <stufe 0-15> [spieler]", NamedTextColor.RED));
+            sender.sendMessage(Component.text("Usage: /lightblock give <level 0-15> [player]", NamedTextColor.RED));
             return true;
         }
 
@@ -32,11 +32,11 @@ public class LightBlockCommand implements CommandExecutor, TabCompleter {
         try {
             level = Integer.parseInt(args[1]);
         } catch (NumberFormatException e) {
-            sender.sendMessage(Component.text("Stufe muss eine Zahl zwischen 0 und 15 sein.", NamedTextColor.RED));
+            sender.sendMessage(Component.text("Level must be a number between 0 and 15.", NamedTextColor.RED));
             return true;
         }
         if (level < LightBlockItem.MIN_LEVEL || level > LightBlockItem.MAX_LEVEL) {
-            sender.sendMessage(Component.text("Stufe muss zwischen 0 und 15 liegen.", NamedTextColor.RED));
+            sender.sendMessage(Component.text("Level must be between 0 and 15.", NamedTextColor.RED));
             return true;
         }
 
@@ -44,19 +44,19 @@ public class LightBlockCommand implements CommandExecutor, TabCompleter {
         if (args.length >= 3) {
             target = Bukkit.getPlayerExact(args[2]);
             if (target == null) {
-                sender.sendMessage(Component.text("Spieler nicht gefunden: " + args[2], NamedTextColor.RED));
+                sender.sendMessage(Component.text("Player not found: " + args[2], NamedTextColor.RED));
                 return true;
             }
         } else if (sender instanceof Player player) {
             target = player;
         } else {
-            sender.sendMessage(Component.text("Bitte einen Spieler angeben.", NamedTextColor.RED));
+            sender.sendMessage(Component.text("Please specify a player.", NamedTextColor.RED));
             return true;
         }
 
         ItemStack item = LightBlockItem.create(level);
         target.getInventory().addItem(item);
-        sender.sendMessage(Component.text("Lichtblock (Stufe " + level + ") an " + target.getName() + " gegeben.", NamedTextColor.GREEN));
+        sender.sendMessage(Component.text("Gave a level " + level + " light block to " + target.getName() + ".", NamedTextColor.GREEN));
         return true;
     }
 

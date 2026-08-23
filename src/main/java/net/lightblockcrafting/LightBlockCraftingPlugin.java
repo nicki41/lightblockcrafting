@@ -32,7 +32,7 @@ public final class LightBlockCraftingPlugin extends JavaPlugin {
             pluginCommand.setTabCompleter(command);
         }
 
-        getLogger().info("LightBlockCrafting aktiviert (" + recipeKeys.size() + " Rezepte, Stufen "
+        getLogger().info("LightBlockCrafting enabled (" + recipeKeys.size() + " recipes, levels "
                 + LightBlockItem.MIN_LEVEL + "-" + LightBlockItem.MAX_LEVEL + ").");
     }
 }

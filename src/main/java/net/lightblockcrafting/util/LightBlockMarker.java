@@ -14,9 +14,9 @@ import java.util.Collection;
 import java.util.UUID;
 
 /**
- * Verwaltet die sichtbare TextDisplay- (zeigt die Lichtstufe als Zahl) und die
- * klickbare Interaction-Entity, die zusammen einen fuer den Spieler immer
- * sichtbaren "Lichtblock" ergeben.
+ * Manages the visible TextDisplay (shows the light level as a number) and the
+ * clickable Interaction entity, which together form a light block that is
+ * always visible to the player.
  */
 public final class LightBlockMarker {
 
@@ -24,7 +24,7 @@ public final class LightBlockMarker {
     }
 
     /**
-     * Spawnt die Anzeige- und Klick-Entity fuer einen platzierten Lichtblock an blockLocation.
+     * Spawns the display and click entities for a light block placed at blockLocation.
      */
     public static void spawn(Location blockLocation, int level) {
         var block = blockLocation.getBlock();
@@ -65,7 +65,7 @@ public final class LightBlockMarker {
     }
 
     /**
-     * Entfernt die zu einer Interaction-Entity gehoerende TextDisplay-Entity sowie die Interaction selbst.
+     * Removes the TextDisplay entity paired with an interaction entity as well as the interaction itself.
      */
     public static void removePair(Interaction interaction) {
         String pairedId = interaction.getPersistentDataContainer().get(LightBlockKeys.PAIRED_DISPLAY, PersistentDataType.STRING);
@@ -77,15 +77,15 @@ public final class LightBlockMarker {
                     paired.remove();
                 }
             } catch (IllegalArgumentException ignored) {
-                // ungueltige UUID, nichts zu tun
+                // invalid UUID, nothing to do
             }
         }
         interaction.remove();
     }
 
     /**
-     * Entfernt alle Marker-Entities (Interaction + TextDisplay) an genau diesem Block,
-     * unabhaengig davon ob die Paarung noch intakt ist. Wird fuer Aufraeumarbeiten genutzt.
+     * Removes all marker entities (Interaction + TextDisplay) at exactly this block,
+     * regardless of whether the pairing is still intact. Used for cleanup.
      */
     public static void removeAllAt(Location blockLocation) {
         Location center = blockLocation.getBlock().getLocation().add(0.5, 0.5, 0.5);

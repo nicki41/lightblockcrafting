@@ -5,58 +5,57 @@
 <h1 align="center">LightBlockCrafting</h1>
 
 <p align="center">
-  Craftbare, sichtbare Lichtbl&ouml;cke in 15 Helligkeitsstufen &ndash; 100% vanilla- und survivalfreundlich.
+  Craftable, visible light blocks in 15 brightness levels &ndash; 100% vanilla- and survival-friendly.
 </p>
 
-## Was macht das Plugin?
+## What does this plugin do?
 
-Vanilla-Lichtbl&ouml;cke (`minecraft:light`) sind nur sichtbar und abbaubar, wenn man selbst
-einen Lichtblock in der Hand h&auml;lt. Dieses Plugin l&ouml;st das:
+Vanilla light blocks (`minecraft:light`) are only visible and breakable if you hold a light
+block in your own hand. This plugin fixes that:
 
-- **Craftbar in 15 Stufen** direkt am Crafting-Tisch, kein Kommando, kein Kreativmodus n&ouml;tig.
-- **Immer sichtbar & abbaubar** &ndash; auch ohne Lichtblock in der Hand. Der Marker zeigt einfach die
-  Stufe als schwebende Zahl.
-- **Kein Resourcepack, kein Mod** &ndash; nur vanilla Bukkit/Paper-Mechaniken (Display- & Interaction-Entities).
+- **Craftable in 15 levels** right at the crafting table, no command, no creative mode needed.
+- **Always visible & breakable** &ndash; even without a light block in hand. The marker simply
+  shows the level as a floating number.
+- **No resource pack, no mod** &ndash; only vanilla Bukkit/Paper mechanics (Display & Interaction entities).
 
-## Rezepte
+## Recipes
 
-Jede Stufe hat ihr eigenes festes Rezept, immer mit 1x Glas als Basis. Keine nachtr&auml;gliche
-Anpassung m&ouml;glich.
+Every level has its own fixed recipe, always based on 1x glass. No way to adjust it afterwards.
 
-| Stufe | Rezept |
+| Level | Recipe |
 |:-----:|--------|
-| 1&ndash;8   | 1x Glas + *N*x Glowstone-Staub (N = Stufe) |
-| 9&ndash;15  | 1x Glas + *N*x Glowstone-Block (N = Stufe &minus; 7) |
+| 1&ndash;8   | 1x Glass + *N*x Glowstone Dust (N = level) |
+| 9&ndash;15  | 1x Glass + *N*x Glowstone Block (N = level &minus; 7) |
 
-Stufe 0 ist absichtlich nicht craftbar. Alle Rezepte passen in ein normales 3x3-Crafting-Feld
-und werden Spielern automatisch im Rezeptbuch freigeschaltet.
+Level 0 is deliberately not craftable. All recipes fit in a normal 3x3 crafting grid and are
+automatically unlocked in players' recipe books.
 
-## Admin-Befehl
+## Admin command
 
 ```
-/lightblock give <Stufe 0-15> [Spieler]
+/lightblock give <level 0-15> [player]
 ```
 
-Permission: `lightblockcrafting.admin` (Standard: Operatoren).
+Permission: `lightblockcrafting.admin` (default: operators).
 
-## Unterst&uuml;tzte Versionen
+## Supported versions
 
-Ein einziges Build funktioniert unver&auml;ndert auf jedem **Paper-basierten** Server (Paper,
-Purpur, Pufferfish, &hellip;) von **1.19.4 bis 26.2** &ndash; genutzt werden ausschlie&szlig;lich
-seit 1.19.4 stabile Bukkit/Paper-APIs (Display- & Interaction-Entities).
+A single build works unmodified on any **Paper-based** server (Paper, Purpur, Pufferfish, &hellip;)
+from **1.19.4 to 26.2** &ndash; it only uses Bukkit/Paper APIs that have been stable since 1.19.4
+(Display & Interaction entities).
 
 ## Build
 
-Ben&ouml;tigt wird nur eine Internetverbindung f&uuml;r den ersten Build (Gradle l&auml;dt die
-passende Java-Toolchain automatisch).
+Only an internet connection is needed for the first build (Gradle downloads the matching Java
+toolchain automatically).
 
 ```
 ./gradlew build
 ```
 
-Das fertige Plugin liegt danach unter `build/libs/LightBlockCrafting-<version>.jar` und geh&ouml;rt
-in den `plugins`-Ordner eines Paper-Servers.
+The finished plugin ends up at `build/libs/LightBlockCrafting-<version>.jar` and belongs in the
+`plugins` folder of a Paper server.
 
-## Lizenz
+## License
 
 [GPL-3.0](LICENSE)
