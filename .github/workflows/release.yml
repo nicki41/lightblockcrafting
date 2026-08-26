@@ -95,6 +95,7 @@ jobs:
           echo "checksum=${JAR}.sha256" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub release
+        id: github_release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -105,3 +106,28 @@ jobs:
             "${{ steps.artifact.outputs.checksum }}" \
             --title "LightBlockCrafting ${VERSION}" \
             --generate-notes
+          {
+            echo "body<<GH_RELEASE_BODY_EOF"
+            gh release view "${{ steps.tag.outputs.name }}" --json body -q .body
+            echo "GH_RELEASE_BODY_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      # Mirrors the same release onto the existing Modrinth project
+      # (id qUa6uyXN). fail-mode: warn so a Modrinth-side hiccup doesn't mark
+      # the whole release as failed - the GitHub release above has already
+      # succeeded by this point.
+      - name: Publish to Modrinth
+        uses: Kira-NT/mc-publish@v3
+        with:
+          modrinth-id: qUa6uyXN
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          files: build/libs/LightBlockCrafting-*.jar
+          name: LightBlockCrafting ${{ steps.version.outputs.version }}
+          version: ${{ steps.version.outputs.version }}
+          changelog: ${{ steps.github_release.outputs.body }}
+          loaders: paper
+          # Documented, deliberate claim (see MODRINTH.md): the plugin only
+          # relies on Bukkit/Paper APIs stable since 1.19.4.
+          game-versions: ">=1.19.4 <=26.2"
+          java: 17
+          fail-mode: warn
