@@ -125,7 +125,13 @@ jobs:
           name: LightBlockCrafting ${{ steps.version.outputs.version }}
           version: ${{ steps.version.outputs.version }}
           changelog: ${{ steps.github_release.outputs.body }}
-          loaders: paper
+          # Matches the loaders already declared on the existing manually
+          # uploaded 1.0.0 version - kept consistent rather than narrowed
+          # unilaterally. MODRINTH.md documents Paper/Purpur/Pufferfish
+          # compatibility; Pufferfish isn't its own Modrinth loader tag.
+          loaders: |
+            paper
+            purpur
           # Documented, deliberate claim (see MODRINTH.md): the plugin only
           # relies on Bukkit/Paper APIs stable since 1.19.4.
           game-versions: ">=1.19.4 <=26.2"
