@@ -4,6 +4,7 @@ import net.lightblockcrafting.command.LightBlockCommand;
 import net.lightblockcrafting.listener.ChunkGuardListener;
 import net.lightblockcrafting.listener.PlaceBreakListener;
 import net.lightblockcrafting.listener.RecipeBookListener;
+import net.lightblockcrafting.telemetry.TelemetryReporter;
 import net.lightblockcrafting.util.LightBlockItem;
 import net.lightblockcrafting.util.LightBlockKeys;
 import net.lightblockcrafting.util.LightBlockRecipes;
@@ -14,8 +15,11 @@ import java.util.List;
 
 public final class LightBlockCraftingPlugin extends JavaPlugin {
 
+    private TelemetryReporter telemetry;
+
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         LightBlockKeys.init(this);
 
         List<NamespacedKey> recipeKeys = LightBlockRecipes.registerAll(this);
@@ -32,7 +36,17 @@ public final class LightBlockCraftingPlugin extends JavaPlugin {
             pluginCommand.setTabCompleter(command);
         }
 
+        telemetry = new TelemetryReporter(this);
+        telemetry.start();
+
         getLogger().info("LightBlockCrafting enabled (" + recipeKeys.size() + " recipes, levels "
                 + LightBlockItem.MIN_LEVEL + "-" + LightBlockItem.MAX_LEVEL + ").");
+    }
+
+    @Override
+    public void onDisable() {
+        if (telemetry != null) {
+            telemetry.stop();
+        }
     }
 }
