@@ -38,3 +38,12 @@ tasks.jar {
     archiveBaseName.set("LightBlockCrafting")
     archiveClassifier.set("")
 }
+
+// Read by CI to check a release tag against the project version - see
+// .github/workflows/release.yml.
+tasks.register("printVersion") {
+    group = "help"
+    description = "Prints the project version (used by the CI release tag check)."
+    val projectVersion = project.version.toString()
+    doLast { println(projectVersion) }
+}

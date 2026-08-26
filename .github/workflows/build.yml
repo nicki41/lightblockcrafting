@@ -1,0 +1,41 @@
+name: Build
+
+# Compiles and packages the plugin on every push and PR against master. Never
+# publishes anything - it only uploads the jar as a temporary, traceable
+# Actions artifact. See release.yml and auto-release.yml for publishing.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Build
+        run: ./gradlew build --console=plain
+
+      - name: Upload jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: LightBlockCrafting-jar
+          path: build/libs/*.jar
