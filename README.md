@@ -14,8 +14,9 @@ Vanilla light blocks (`minecraft:light`) are only visible and breakable if you h
 block in your own hand. This plugin fixes that:
 
 - **Craftable in 15 levels** right at the crafting table, no command, no creative mode needed.
-- **Always visible & breakable** &ndash; even without a light block in hand. The marker simply
-  shows the level as a floating number.
+- **Always breakable** &ndash; even without a light block in hand, unlike vanilla.
+- **Level number on demand** &ndash; a floating number shows the block's level, but only to
+  players who are themselves holding a light block, just like vanilla's own indicator.
 - **No resource pack, no mod** &ndash; only vanilla Bukkit/Paper mechanics (Display & Interaction entities).
 
 ## Recipes
